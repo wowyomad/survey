@@ -1,0 +1,31 @@
+spring:
+  config:
+    import: classpath:application-secret.properties
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+      logging:
+        level:
+          org.hibernate.SQL: DEBUG
+          org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  mail:
+    host: ${settings.mail.host}
+    port: ${settings.mail.port}
+    username: ${settings.mail.username}
+    password: ${settings.mail.password}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
