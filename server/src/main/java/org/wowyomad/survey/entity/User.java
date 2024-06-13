@@ -44,6 +44,11 @@ public class User {
     @Column(nullable = false)
     private boolean requireEmailConfirmationOnLogin;
 
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+    }
+
     public Long getId() {
         return id;
     }

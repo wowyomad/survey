@@ -47,7 +47,6 @@ public class UserService {
         user.setFirstName(userRegistrationDto.getFirstName());
         user.setLastName(userRegistrationDto.getLastName());
         user.setPhoneNumber(userRegistrationDto.getPhoneNumber());
-        user.setCreatedAt(LocalDateTime.now());
 
         userRepository.save(user);
 
